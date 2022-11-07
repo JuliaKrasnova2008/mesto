@@ -1,7 +1,5 @@
 # Проект: Место
 
-<iframe src="https://giphy.com/embed/BRie5xjBZcHhj06NfL" width="431" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/up-cloud-balloon-BRie5xjBZcHhj06NfL">via GIPHY</a></p>
-
 ### Обзор
 В этом проекте я провожу работу над сервисом Mesto: интерактивной страницей, куда можно добавлять фотографии, удалять их и ставить лайки.
 По итогу работы необходимо сверстать сайт, написать часть логики на JavaScript. Данный проект является первым в применении практических знаний по JS.
