@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body>
+  <div class="page">
+    <!--HEADER-->
+    <header class="header">
+      <img class="header__logo" src="./images/logo-header.png" alt="Логотип">
+      <div class="header__line"></div>
+    </header>
+
+    <!--MAIN-->
+    <main class="content">
+      <section class="profile">
+        <div class="profile__elements">
+          <img class="profile__avatar" src="./images/avatar.png" alt="Аватар">
+          <div class="profile__info">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <img class="profile__edit-button" src="./images/edit-button.png" alt="Редактировать профиль">
+            <p class="profile__subtitle">Исследователь океана</p>
+          </div>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+
+      <section class="elements">
+        <ul class="elements__list">
+          <li class="elements__card">
+            <img class="elements__foto" src="./images/karachaevsk.png" alt="Карачаевск">
+            <div class="elements__item">
+              <h2 class="elements__title">Карачаевск</h2>
+              <button class="elements__favorite" type="button">
+              </button>
+            </div>
+          </li>
+
+          <li class="elements__card">
+            <img class="elements__foto" src="./images/elbrus.png" alt="Гора Эльбрус">
+            <div class="elements__item">
+              <h2 class="elements__title">Гора Эльбрус</h2>
+              <button class="elements__favorite" type="button">
+              </button>
+            </div>
+          </li>
+
+          <li class="elements__card">
+            <img class="elements__foto" src="./images/dombai.png" alt="Домбай">
+            <div class="elements__item">
+              <h2 class="elements__title">Домбай</h2>
+              <button class="elements__favorite" type="button">
+              </button>
+            </div>
+          </li>
+
+          <li class="elements__card">
+            <img class="elements__foto" src="./images/altai.jpg" alt="Алтай">
+            <div class="elements__item">
+              <h2 class="elements__title">Алтай</h2>
+              <button class="elements__favorite" type="button">
+              </button>
+            </div>
+          </li>
+
+          <li class="elements__card">
+            <img class="elements__foto" src="./images/kamchatka.jpg" alt="Камчатка">
+            <div class="elements__item">
+              <h2 class="elements__title">Камчатка</h2>
+              <button class="elements__favorite" type="button">
+              </button>
+            </div>
+          </li>
+
+          <li class="elements__card">
+            <img class="elements__foto" src="./images/karachaevo.jpg" alt="Карачаево-Черкессия">
+            <div class="elements__item">
+              <h2 class="elements__title">Карачаево-Черкессия</h2>
+              <button class="elements__favorite elements__favorite_active" type="button">
+              </button>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!--FOOTER-->
+    <footer class="footer">
+      <p class="footer__author">© 2020 Mesto Russia</p>
+    </footer>
+
+    <div class="popup">
+    <div class="popup__content">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <div class="popup__input">
+        <input type="text" placeholder="Имя" class="popup__name">
+        <input type="text" placeholder="О себе" class="popup__about">
+        <button class="popup__submit-btn popup__submit-btn_action_add">
+          Сохранить
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  <script src="./scripts/index.js" defer></script>
+</body>
+
+</html>
