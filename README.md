@@ -16,7 +16,7 @@
 * Реализация лайков под фото
 
 
- [Ссылка на проектную работу](https://github.com/JuliaKrasnova2008/mesto.git)
+ [Ссылка на проектную работу](https://juliakrasnova2008.github.io/mesto/)
 
 
 
