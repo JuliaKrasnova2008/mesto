@@ -1,6 +1,5 @@
 .profile__title {
     margin: 0;
-    margin-bottom: 16px;
     padding: 0;
     max-width: 294px;
     font-style: normal;
@@ -15,11 +14,19 @@
     }
 }
 
+@media (max-width: 380px) {
+    .profile__title {
+        font-size: 30px;
+        line-height: 36px;
+    }
+}
+
 @media (max-width: 320px) {
     .profile__title {
         max-width: 189px;
         font-size: 27px;
         line-height: 33px;
         margin-bottom: 5px;
+        margin-left: 28px;
     }
 }

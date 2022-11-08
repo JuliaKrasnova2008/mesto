@@ -4,8 +4,6 @@
     padding: 0;
     flex-direction: column;
     justify-content: center;
-    position: relative;
-
 }
 
 @media (max-width: 768px) {
