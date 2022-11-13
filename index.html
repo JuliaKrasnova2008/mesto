@@ -12,78 +12,77 @@
   <div class="page">
     <!--HEADER-->
     <header class="header">
-      <img class="header__logo" src="./images/logo-header.png" alt="Логотип">
-      <div class="header__line"></div>
+      <img class="header__logo" src="./images/logo.svg" alt="Логотип сайта Места России">
     </header>
 
     <!--MAIN-->
     <main class="content">
       <section class="profile">
         <div class="profile__elements">
-          <img class="profile__avatar" src="./images/avatar.png" alt="Аватар">
+          <img class="profile__avatar" src="./images/avatar.png" alt="Аватар пользователя">
           <div class="profile__info">
             <div class="profile__title-edit">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" type="button"></button>
+              <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
             </div>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
         </div>
 
-        <button class="profile__add-button" type="button"></button>
+        <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
 
       <section class="elements">
         <ul class="elements__list">
           <li class="elements__card">
-            <img class="elements__foto" src="./images/karachaevsk.png" alt="Карачаевск">
+            <img class="elements__foto" src="./images/karachaevsk.png" alt="Карачаевск. Старинный храм на фоне леса.">
             <div class="elements__item">
               <h2 class="elements__title">Карачаевск</h2>
-              <button class="elements__favorite" type="button"></button>
+              <button class="elements__favorite" type="button" aria-label="Нравится"></button>
             </div>
           </li>
 
           <li class="elements__card">
-            <img class="elements__foto" src="./images/elbrus.png" alt="Гора Эльбрус">
+            <img class="elements__foto" src="./images/elbrus.png" alt="Гора Эльбрус в далеке на закате.">
             <div class="elements__item">
               <h2 class="elements__title">Гора Эльбрус</h2>
-              <button class="elements__favorite" type="button">
+              <button class="elements__favorite" type="button" aria-label="Нравится">
               </button>
             </div>
           </li>
 
           <li class="elements__card">
-            <img class="elements__foto" src="./images/dombai.png" alt="Домбай">
+            <img class="elements__foto" src="./images/dombai.png" alt="Домбай. Заснеженная гора в пасмурную погоду.">
             <div class="elements__item">
               <h2 class="elements__title">Домбай</h2>
-              <button class="elements__favorite" type="button">
+              <button class="elements__favorite" type="button" aria-label="Нравится">
               </button>
             </div>
           </li>
 
           <li class="elements__card">
-            <img class="elements__foto" src="./images/altai.jpg" alt="Алтай">
+            <img class="elements__foto" src="./images/altai.jpg" alt="Алтай. Осенняя пора, в далеке заснеженные горы.">
             <div class="elements__item">
               <h2 class="elements__title">Алтай</h2>
-              <button class="elements__favorite" type="button">
+              <button class="elements__favorite" type="button" aria-label="Нравится">
               </button>
             </div>
           </li>
 
           <li class="elements__card">
-            <img class="elements__foto" src="./images/kamchatka.jpg" alt="Камчатка">
+            <img class="elements__foto" src="./images/kamchatka.jpg" alt="Камчатка. Слегка покрытая снегом камчатская сопка.">
             <div class="elements__item">
               <h2 class="elements__title">Камчатка</h2>
-              <button class="elements__favorite" type="button">
+              <button class="elements__favorite" type="button" aria-label="Нравится">
               </button>
             </div>
           </li>
 
           <li class="elements__card">
-            <img class="elements__foto" src="./images/karachaevo.jpg" alt="Карачаево-Черкессия">
+            <img class="elements__foto" src="./images/karachaevo.jpg" alt="Карачаево-Черкессия. Вид на холмы с высоты птичьего полета.">
             <div class="elements__item">
               <h2 class="elements__title">Карачаево-Черкессия</h2>
-              <button class="elements__favorite elements__favorite_active" type="button">
+              <button class="elements__favorite elements__favorite_active" type="button" aria-label="Нравится">
               </button>
             </div>
           </li>
@@ -98,15 +97,15 @@
     </footer>
 
     <div class="popup">
-      <div class="popup__content">
-        <button class="popup__close" type="button"></button>
+      <form class="popup__content" name="myForm" method="post">
+        <button class="popup__close" type="button" aria-label="Закрыть редактирование профиля"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" placeholder="Имя" class="popup__name">
-        <input type="text" placeholder="О себе" class="popup__about">
-        <button class="popup__submit-btn" type="submit">
+        <input type="text" placeholder="Имя" class="popup__text popup__text_name" name="myName">
+        <input type="text" placeholder="О себе" class="popup__text popup__text_about" name="aboutMe">
+        <button class="popup__submit-btn" type="submit" aria-label="Сохранить редактирование профиля">
           Сохранить
         </button>
-      </div>
+      </form>
 
     </div>
 

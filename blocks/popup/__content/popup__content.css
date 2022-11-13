@@ -7,6 +7,7 @@
     max-width: 430px;
     width: 100%;
     position: relative;
+    margin: auto;
 }
 
 @media (max-width: 320px) {
