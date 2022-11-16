@@ -12,12 +12,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    .header__logo {
-
-    }
-}
-
 @media (max-width: 320px) {
     .header__logo {
         width: 104px;

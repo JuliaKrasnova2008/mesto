@@ -1,9 +1,9 @@
 const editElem = document.querySelector('.profile__edit-button');
 const popupElem = document.querySelector('.popup');
 const popupCloseElem = popupElem.querySelector('.popup__close');
-const popupForm = document.querySelector('.popup__content');
-const nameElem = popupElem.querySelector('.popup__text_name');
-const aboutElem = popupElem.querySelector('.popup__text_about');
+const popupForm = document.querySelector('.popup__form');
+const nameElem = popupElem.querySelector('.popup__text_type_name');
+const aboutElem = popupElem.querySelector('.popup__text_type_about');
 const titleElem = document.querySelector('.profile__title');
 const subtitleElem = document.querySelector('.profile__subtitle');
 
@@ -21,10 +21,11 @@ popupCloseElem.addEventListener('click', () => {
     popupOpenClose();
 });
 
-popupForm.addEventListener('submit', () => {
+popupForm.addEventListener('submit', (event) => {
     titleElem.textContent = nameElem.value;
     subtitleElem.textContent = aboutElem.value;
     popupOpenClose();
+    event.preventDefault(); //останавливаю событие на странице
 });
 
 popupElem.addEventListener('click', (even) => {
