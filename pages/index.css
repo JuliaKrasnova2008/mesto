@@ -45,6 +45,8 @@
 @import url(../blocks/popup-add/__submit-btn/popup-add__submit.css);
 @import url(../blocks/popup-add/__title/popup-add__title.css);
 @import url(../blocks/popup-add/_opened/popup-add_opened.css);
+@import url(../blocks/popup-add/__text/popup-add__text.css);
+
 
 @import url(../blocks/popup-img/popup-img.css);
 @import url(../blocks/popup-img/__close/popup-img__close.css);
