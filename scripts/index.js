@@ -9,8 +9,8 @@ const subtitleElem = document.querySelector('.profile__subtitle');
 
 const addElem = document.querySelector('.profile__add-button');
 const popupAddElem = document.querySelector('.popup-add');
-const popupAddCloseElem = popupAddElem.querySelector('.popup__close-add');
-const popupAddForm = document.querySelector('.popup__form-add');
+const popupAddCloseElem = popupAddElem.querySelector('.popup-add__close');
+const popupAddForm = document.querySelector('.popup-add__form');
 const titleAddElem = popupAddElem.querySelector('.popup__text_type_title');
 const linkAddElem = popupAddElem.querySelector('.popup__text_type_link');
 const titleElemCard = document.querySelector('.elements__title');
@@ -146,7 +146,7 @@ favoriteElem.forEach(function (favorite) {
 
 //Открытие попапа "Добавить"
 function popupAddOpenClose() {
-    popupAddElem.classList.toggle('popup_opened-add');
+    popupAddElem.classList.toggle('popup-add_opened');
 }
 
 addElem.addEventListener('click', () => {

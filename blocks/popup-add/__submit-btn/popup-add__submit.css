@@ -1,4 +1,4 @@
-.popup__submit-btn-add {
+.popup-add__submit-btn {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -12,13 +12,13 @@
     border: none;
 }
 
-.popup__submit-btn-add:hover {
+.popup-add__submit-btn:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
 @media (max-width: 320px) {
-    .popup__submit-btn-add {
+    .popup-add__submit-btn {
         font-size: 14px;
         line-height: 17px;
     }
