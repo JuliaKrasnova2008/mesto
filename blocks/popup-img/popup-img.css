@@ -1,10 +1,11 @@
-.popup {
+.popup-img {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, 0.9);
+    display: none;
     justify-content: center;
     align-items: flex-start;
 
@@ -14,7 +15,7 @@
 }
 
 @media (max-width: 550px) {
-    .popup {
+    .popup-img {
         padding-right: 19px;
         padding-left: 19px;
     }
