@@ -11,8 +11,8 @@ const addElem = document.querySelector('.profile__add-button');
 const popupAddElem = document.querySelector('.popup-add');
 const popupAddCloseElem = popupAddElem.querySelector('.popup-add__close');
 const popupAddForm = document.querySelector('.popup-add__form');
-const titleAddElem = popupAddElem.querySelector('.popup__text_type_title');
-const linkAddElem = popupAddElem.querySelector('.popup__text_type_link');
+const titleAddElem = popupAddElem.querySelector('.popup-add__text_type_title');
+const linkAddElem = popupAddElem.querySelector('.popup-add__text_type_link');
 const titleElemCard = document.querySelector('.elements__title');
 const linkElemCard = document.querySelector('.elements__foto');
 
