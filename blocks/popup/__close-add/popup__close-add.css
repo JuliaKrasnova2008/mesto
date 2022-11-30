@@ -1,4 +1,4 @@
-.popup-add__close {
+.popup__close-add {
     all: unset;
     background-image: url(../../../images/close-icon.svg);
     width: 32px;
@@ -10,13 +10,13 @@
     top: -40px;
 }
 
-.popup-add__close:hover {
+.popup__close-add:hover {
 cursor: pointer;
 opacity: 0.6;
 }
 
 @media (max-width: 550px) {
-    .popup-add__close {
+    .popup__close-add {
         background-image: url(../../../images/close-icon-mobile.svg);
         width: 20px;
         height: 20px;

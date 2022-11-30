@@ -9,17 +9,17 @@ const profileSubtitleCard = document.querySelector('.profile__subtitle');
 
 const popupAddOpenButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_type_add');
-const popupAddCloseButton = popupAdd.querySelector('.popup-add__close');
+const popupAddCloseButton = popupAdd.querySelector('.popup__close-add');
 const popupAddForm = document.querySelector('.popup__form_type_add');
-const popupAddFormTitle = popupAdd.querySelector('.popup-add__text_type_title');
-const popupAddFormLink = popupAdd.querySelector('.popup-add__text_type_link');
+const popupAddFormTitle = popupAdd.querySelector('.popup__text_type_title-add');
+const popupAddFormLink = popupAdd.querySelector('.popup__text_type_link-add');
 const elementsTitleCard = document.querySelector('.elements__title');
 const elementsFotoCard = document.querySelector('.elements__foto');
 
 const popupImages = document.querySelector('.popup_type_img');
-const popupImagesCloseButton = popupImages.querySelector('.popup-img__close');
-const popupImagesFotoCard = popupImages.querySelector('.popup-img__image');
-const popupImagesTitle = popupImages.querySelector('.popup-img__title');
+const popupImagesCloseButton = popupImages.querySelector('.popup__close-img');
+const popupImagesFotoCard = popupImages.querySelector('.popup__image-preview');
+const popupImagesTitle = popupImages.querySelector('.popup__title-img');
 
 
 //Массив
