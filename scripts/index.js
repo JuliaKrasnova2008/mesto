@@ -146,14 +146,9 @@ popupAddForm.addEventListener('submit', (event) => {
         link: popupAddFormLink.value
     });
     closePopup(popupAdd);
+    popupAddForm.reset(); //сбрасываю значение
     event.preventDefault(); //останавливаю событие на странице
 });
-popupAdd.addEventListener('click', (even) => {
-    if (even.target === even.currentTarget) {
-        closePopup(popupAdd);
-    }
-})
-
 
 
 //Открытие попапа "Редактировать"
