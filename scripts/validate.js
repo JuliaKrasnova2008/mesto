@@ -14,7 +14,7 @@ const myformAdd = document.querySelector("#formAdd");
 enableValidation(myformAdd, myFormAddValidators);
 
 function enableValidation(form, validators) {
-  const inputsContainer = form.querySelector(".form__inputs");
+  const inputsContainer = form.querySelector(".popup__form-inputs");
 
   //1.создаем функцию, как параметры добавляем ключ и значение
   function validate(key, value) {
