@@ -3,12 +3,12 @@ const popupProfile = document.querySelector(".popup_type_profile");
 const popupProfileCloseButton = popupProfile.querySelector(
   ".popup__close-button"
 );
-const popupProfileForm = document.querySelector(".popup__form_type_profile");
+const popupProfileForm = document.querySelector(".form_type_profile");
 const popupProfileFormName = popupProfile.querySelector(
-  ".popup__text_type_name"
+  ".form__input_type_name"
 );
 const popupProfileFormAbout = popupProfile.querySelector(
-  ".popup__text_type_about"
+  ".form__input_type_about"
 );
 const profileTitleCard = document.querySelector(".profile__title");
 const profileSubtitleCard = document.querySelector(".profile__subtitle");
@@ -16,9 +16,9 @@ const profileSubtitleCard = document.querySelector(".profile__subtitle");
 const popupAddOpenButton = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup_type_add");
 const popupAddCloseButton = popupAdd.querySelector(".popup__close-add");
-const popupAddForm = document.querySelector(".popup__form_type_add");
-const popupAddFormTitle = popupAdd.querySelector(".popup__text_type_title-add");
-const popupAddFormLink = popupAdd.querySelector(".popup__text_type_link-add");
+const popupAddForm = document.querySelector(".form_type_add");
+const popupAddFormTitle = popupAdd.querySelector(".form__input_type_title-add");
+const popupAddFormLink = popupAdd.querySelector(".form__input_type_link-add");
 const elementsTitleCard = document.querySelector(".elements__title");
 const elementsFotoCard = document.querySelector(".elements__foto");
 

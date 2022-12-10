@@ -1,4 +1,4 @@
-.popup__submit-btn_disable {
+.form__submit_disable {
     background: #ffffff;
     border: 1px solid #000000;
     border-radius: 2px;
@@ -6,7 +6,7 @@
     color: #000000;
 }
 
-.popup__submit-btn_disable:hover {
+.form__submit_disable:hover {
     cursor: default;
     background: #ffffff;
     border: 1px solid #000000;

@@ -10,7 +10,7 @@
 
     visibility: hidden;
     opacity: 0;
-    transition: all .6s cubic-bezier(0, 1.1, 1, 1);
+    transition: all .6s ease-out;
 }
 
 @media (max-width: 550px) {
