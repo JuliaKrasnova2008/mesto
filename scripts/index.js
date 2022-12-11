@@ -1,3 +1,4 @@
+const ESC_CODE = "Escape";
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupProfileCloseButton = popupProfile.querySelector(
@@ -27,51 +28,30 @@ const popupImagesCloseButton = popupImages.querySelector(".popup__close-img");
 const popupImagesFotoCard = popupImages.querySelector(".popup__image-preview");
 const popupImagesTitle = popupImages.querySelector(".popup__title-img");
 
-//Массив
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
 //Открытие и закрытие попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-}
+  document.addEventListener('keydown',  closeByEsc)
+  document.addEventListener('click',  closeByOverlay)
+
+};
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-
+  document.removeEventListener('keydown',  closeByEsc);
+  document.removeEventListener('click',  closeByOverlay);
 }
-document.addEventListener("keydown", function (event) {
-  //keydown-нажатие кнопки Esc
-  const key = event.key;
-  if (key === "Escape") {
-    closePopup(popupProfile);
-    closePopup(popupAdd);
-    closePopup(popupImages);
+
+function closeByEsc(evt) {
+  if (evt.key === ESC_CODE) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
   }
-});
+};
+function closeByOverlay (target, currentTarget, object) {
+  if (target === currentTarget) {
+    closePopup(object);
+}
+};
 
 //Добавление карточек с использованием template-тегов
 
@@ -111,10 +91,8 @@ popupImagesCloseButton.addEventListener("click", () => {
   closePopup(popupImages);
 });
 popupImages.addEventListener("click", (even) => {
-  if (even.target === even.currentTarget) {
-    closePopup(popupImages);
-  }
-});
+  closeByOverlay(even.target, even.currentTarget, popupImages)
+  });
 
 //Генерация карточки
 const generateCard = (dataCard) => {
@@ -158,6 +136,10 @@ popupAddOpenButton.addEventListener("click", () => {
 popupAddCloseButton.addEventListener("click", () => {
   closePopup(popupAdd);
 });
+popupAdd.addEventListener("click", (even) => {
+  closeByOverlay(even.target, even.currentTarget, popupAdd)
+  });
+
 //Внесение и сохрание изменений "Добавить"
 popupAddForm.addEventListener("submit", (event) => {
   renderCard({
@@ -167,11 +149,6 @@ popupAddForm.addEventListener("submit", (event) => {
   closePopup(popupAdd);
   popupAddForm.reset(); //сбрасываю значение
   event.preventDefault(); //останавливаю событие на странице
-});
-popupAdd.addEventListener("click", (even) => {
-  if (even.target === even.currentTarget) {
-    closePopup(popupAdd);
-  }
 });
 
 //Открытие попапа "Редактировать"
@@ -192,7 +169,5 @@ popupProfileForm.addEventListener("submit", (event) => {
   event.preventDefault(); //останавливаю событие на странице
 });
 popupProfile.addEventListener("click", (even) => {
-  if (even.target === even.currentTarget) {
-    closePopup(popupProfile);
-  }
+closeByOverlay(even.target, even.currentTarget, popupProfile)
 });
