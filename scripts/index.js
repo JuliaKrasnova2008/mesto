@@ -31,19 +31,19 @@ const popupImagesTitle = popupImages.querySelector(".popup__title-img");
 //Открытие и закрытие попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('keydown',  closeByEsc)
-  document.addEventListener('click',  closeByOverlay)
+  document.addEventListener("keydown",  closeByEsc)
+  document.addEventListener("click",  closeByOverlay)
 
 };
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener('keydown',  closeByEsc);
-  document.removeEventListener('click',  closeByOverlay);
+  document.removeEventListener("keydown",  closeByEsc);
+  document.removeEventListener("mousedown",  closeByOverlay);
 }
 
 function closeByEsc(evt) {
   if (evt.key === ESC_CODE) {
-    const openedPopup = document.querySelector('.popup_opened');
+    const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup); 
   }
 };
@@ -90,9 +90,7 @@ const popupImgOpen = (event) => {
 popupImagesCloseButton.addEventListener("click", () => {
   closePopup(popupImages);
 });
-popupImages.addEventListener("click", (even) => {
-  closeByOverlay(even.target, even.currentTarget, popupImages)
-  });
+popupImages.addEventListener("click", closeByOverlay);
 
 //Генерация карточки
 const generateCard = (dataCard) => {
@@ -136,9 +134,7 @@ popupAddOpenButton.addEventListener("click", () => {
 popupAddCloseButton.addEventListener("click", () => {
   closePopup(popupAdd);
 });
-popupAdd.addEventListener("click", (even) => {
-  closeByOverlay(even.target, even.currentTarget, popupAdd)
-  });
+popupAdd.addEventListener("click", closeByOverlay);
 
 //Внесение и сохрание изменений "Добавить"
 popupAddForm.addEventListener("submit", (event) => {
@@ -168,6 +164,4 @@ popupProfileForm.addEventListener("submit", (event) => {
   closePopup(popupProfile);
   event.preventDefault(); //останавливаю событие на странице
 });
-popupProfile.addEventListener("click", (even) => {
-closeByOverlay(even.target, even.currentTarget, popupProfile)
-});
+popupProfile.addEventListener("click", closeByOverlay);
