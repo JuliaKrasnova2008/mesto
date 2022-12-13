@@ -47,11 +47,13 @@ function closeByEsc(evt) {
     closePopup(openedPopup); 
   }
 };
-function closeByOverlay (target, currentTarget, object) {
-  if (target === currentTarget) {
-    closePopup(object);
-}
-};
+
+function closeByOverlay (evt) { 
+  if (evt.target === evt.currentTarget) { 
+    const openedPopup = document.querySelector(".popup_opened"); 
+    closePopup(openedPopup);
+  } 
+}; 
 
 //Добавление карточек с использованием template-тегов
 
