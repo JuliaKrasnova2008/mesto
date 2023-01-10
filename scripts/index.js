@@ -1,5 +1,6 @@
 import Card from "./Card.js"
 import FormValidator from "./FormValidator.js"
+import { initialCards } from "./data.js"
 
 const cardConfig = {
   titleSelector: ".elements__title",
@@ -21,9 +22,10 @@ const config = {
 const ESC_CODE = "Escape";
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup_type_profile");
-const popupProfileCloseButton = popupProfile.querySelector(
-  ".popup__close-button"
-);
+
+// const popupProfileCloseButton = popupProfile.querySelector(
+//   ".popup__close-button"
+// );
 const popupProfileForm = document.querySelector(".form_type_profile");
 const popupProfileFormName = popupProfile.querySelector(
   ".form__input_type_name"
@@ -36,26 +38,38 @@ const profileSubtitleCard = document.querySelector(".profile__subtitle");
 
 const popupAddOpenButton = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup_type_add");
-const popupAddCloseButton = popupAdd.querySelector(".popup__close-add");
+// const popupAddCloseButton = popupAdd.querySelector(".popup__close-add");
 const popupAddForm = document.querySelector(".form_type_add");
 const popupAddFormTitle = popupAdd.querySelector(".form__input_type_title-add");
 const popupAddFormLink = popupAdd.querySelector(".form__input_type_link-add");
 
 export const popupImages = document.querySelector(".popup_type_img");
-const popupImagesCloseButton = popupImages.querySelector(".popup__close-img");
+// const popupImagesCloseButton = popupImages.querySelector(".popup__close-img");
 export const popupImagesFotoCard = popupImages.querySelector(".popup__image-preview");
 export const popupImagesTitle = popupImages.querySelector(".popup__title-img");
+
+// const popups = document.querySelectorAll(".popup");
+const closeButtons = document.querySelectorAll(".popup__close");
+
+document.addEventListener("keydown", closeByEsc)
+
+// popups.forEach((popup) => {
+//   popup.addEventListener("click", closeByOverlay)
+// })
+
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  popup.addEventListener('mousedown', closeByOverlay);
+  button.addEventListener('click', () => closePopup(popup)); 
+})
 
 //Открытие и закрытие попапов
 export function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeByEsc)
-  document.addEventListener("click", closeByOverlay)
 };
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeByEsc);
-  document.removeEventListener("mousedown", closeByOverlay);
+
 }
 
 function closeByEsc(evt) {
@@ -67,8 +81,7 @@ function closeByEsc(evt) {
 
 function closeByOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
+    closePopup(evt.target);
   }
 };
 
@@ -77,10 +90,6 @@ function closeByOverlay(evt) {
 //Дом узлы карточки
 const elemContainer = document.querySelector(".elements__list");
 
-//Закрытие попапа "Картинка"
-popupImagesCloseButton.addEventListener("click", () => {
-  closePopup(popupImages);
-});
 popupImages.addEventListener("click", closeByOverlay);
 
 function handleAddNewElement(event) {
@@ -116,12 +125,11 @@ renderCardList();
 
 //Открытие попапа "Добавить"
 popupAddOpenButton.addEventListener("click", () => {
+  popupAddForm.reset(); //чистит поля формы
+  placeFormValidator.resetValidation();
   openPopup(popupAdd);
 });
-//Закрытие попапа "Добавить"
-popupAddCloseButton.addEventListener("click", () => {
-  closePopup(popupAdd);
-});
+
 popupAdd.addEventListener("click", closeByOverlay);
 
 //Внесение и сохрание изменений "Добавить"
@@ -133,14 +141,11 @@ popupAddForm.addEventListener("submit", (event) => {
 popupProfileOpenButton.addEventListener("click", () => {
   popupProfileFormName.value = profileTitleCard.textContent;
   popupProfileFormAbout.value = profileSubtitleCard.textContent;
+  profileFormValidator.resetValidation();
   openPopup(popupProfile);
 });
-//Закрытие попапа "Редактировать"
-popupProfileCloseButton.addEventListener("click", () => {
-  closePopup(popupProfile);
-});
 
-function handleChangeProfile (event) {
+function handleChangeProfile(event) {
   event.preventDefault();
   profileTitleCard.textContent = popupProfileFormName.value;
   profileSubtitleCard.textContent = popupProfileFormAbout.value;

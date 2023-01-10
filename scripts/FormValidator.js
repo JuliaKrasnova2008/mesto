@@ -51,6 +51,15 @@ export default class FormValidator {
             this._hideInputError(inputElement);
         }
     }
+    //метод, для полной очистки формы и очистки ошибок
+    resetValidation() {
+        this._toggleButtonState();
+  
+        this._inputArray.forEach((inputElement) => {
+          this._hideInputError(inputElement) 
+        });
+  
+      } 
 
     //метод, который добавляет слушателя на все поля ввода внутри формы
     _setListeners() {
@@ -60,6 +69,8 @@ export default class FormValidator {
                 this._toggleButtonState()
             }, 0)
         })
+
+
         this._inputArray.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
                 this._checkInputValidity(inputElement);
