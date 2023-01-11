@@ -23,9 +23,6 @@ const ESC_CODE = "Escape";
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup_type_profile");
 
-// const popupProfileCloseButton = popupProfile.querySelector(
-//   ".popup__close-button"
-// );
 const popupProfileForm = document.querySelector(".form_type_profile");
 const popupProfileFormName = popupProfile.querySelector(
   ".form__input_type_name"
@@ -38,42 +35,37 @@ const profileSubtitleCard = document.querySelector(".profile__subtitle");
 
 const popupAddOpenButton = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup_type_add");
-// const popupAddCloseButton = popupAdd.querySelector(".popup__close-add");
 const popupAddForm = document.querySelector(".form_type_add");
 const popupAddFormTitle = popupAdd.querySelector(".form__input_type_title-add");
 const popupAddFormLink = popupAdd.querySelector(".form__input_type_link-add");
 
 export const popupImages = document.querySelector(".popup_type_img");
-// const popupImagesCloseButton = popupImages.querySelector(".popup__close-img");
 export const popupImagesFotoCard = popupImages.querySelector(".popup__image-preview");
 export const popupImagesTitle = popupImages.querySelector(".popup__title-img");
 
-// const popups = document.querySelectorAll(".popup");
 const closeButtons = document.querySelectorAll(".popup__close");
 
 document.addEventListener("keydown", closeByEsc)
 
-// popups.forEach((popup) => {
-//   popup.addEventListener("click", closeByOverlay)
-// })
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   popup.addEventListener('mousedown', closeByOverlay);
-  button.addEventListener('click', () => closePopup(popup)); 
+  button.addEventListener('click', () => closePopup(popup));
 })
 
 //Открытие и закрытие попапов
 export function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closeByEsc)
 };
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-
+  document.removeEventListener("keydown", closeByEsc);
 }
 
 function closeByEsc(evt) {
-  if (evt.key === ESC_CODE) {
+  if (evt.key === 'Escape') {
     const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup);
   }
