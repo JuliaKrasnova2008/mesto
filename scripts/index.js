@@ -19,7 +19,6 @@ const config = {
   errorClass: "form__input-error_active",
 };
 
-const ESC_CODE = "Escape";
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupProfile = document.querySelector(".popup_type_profile");
 
