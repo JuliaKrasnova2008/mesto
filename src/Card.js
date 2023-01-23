@@ -1,7 +1,5 @@
-import {popupImages, popupImagesFotoCard, popupImagesTitle, openPopup} from "./index.js"
-
 export default class Card {
-    constructor(data, cardConfig, templateSelector) {
+    constructor(data, cardConfig, templateSelector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._templateSelector = templateSelector;
@@ -9,6 +7,7 @@ export default class Card {
         this._imgSelector = cardConfig.imgSelector;
         this._btnLikeSelector = cardConfig.btnLikeSelector;
         this._btnDeleteSelector = cardConfig.btnDeleteSelector;
+        this._handleCardClick = handleCardClick;
     }
     //функция, которая генерит шаблон карточки
     _createTemplate() {
@@ -37,21 +36,14 @@ export default class Card {
         this._cardElem.remove()
         this._cardElem = null;
     }
-    //метод, который открывает картинку
-    _previewImg(name, link) {
-        popupImagesFotoCard.src = link;
-        popupImagesTitle.textContent = name;
-        popupImagesFotoCard.alt = name;
-
-        openPopup(popupImages)
-    }
 
     //метод для проставления слушателей событий
     _setListeners() {
         this._btnLike = this._cardElem.querySelector(this._btnLikeSelector)
         this._btnLike.addEventListener('click', () => this._toggleCardActive())
         this._cardElem.querySelector(this._btnDeleteSelector).addEventListener('click', () => this._deleteCard())
-        this._img.addEventListener('click', () => this._previewImg(this._name, this._link))
+        this._img.addEventListener('click', () => this._handleCardClick(this._name, this._link))
+
     }
 
 
