@@ -1,49 +1,28 @@
-import './styles/index.css'; // добавили импорт главного файла стилей
+import './index.css'; // добавили импорт главного файла стилей
 
-import Card from "./Card.js"
-import FormValidator from "./FormValidator.js"
-import { initialCards } from "./utils/data.js"
-import Section from "./Section.js"
-import PopupWithForm from "./PopupWithForm.js"
-import PopupWithImage from "./PopupWithImage.js"
-import UserInfo from "./UserInfo.js"
-
-const cardConfig = {
-  titleSelector: ".elements__title",
-  imgSelector: ".elements__foto",
-  btnLikeSelector: ".elements__favorite",
-  btnActiveSelector: ".elements__favorite_active",
-  btnDeleteSelector: ".elements__delete"
-}
-
-const config = {
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__submit",
-  submitButtonSelectorDisable: "form__submit_disable",
-  inputErrorClass: "form__input_type_invalid",
-  errorClass: "form__input-error_active",
-};
+import Card from "../components/Card.js"
+import FormValidator from "../components/FormValidator.js"
+import { initialCards, cardConfig, config } from "../utils/data.js"
+import Section from "../components/Section.js"
+import PopupWithForm from "../components/PopupWithForm.js"
+import PopupWithImage from "../components/PopupWithImage.js"
+import UserInfo from "../components/UserInfo.js"
 
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
-
 const popupProfileForm = document.querySelector(".form_type_profile");
-
 const popupAddOpenButton = document.querySelector(".profile__add-button");
 const popupAddForm = document.querySelector(".form_type_add");
 
-export const popupImages = document.querySelector(".popup_type_img");
-export const popupImagesFotoCard = popupImages.querySelector(".popup__image-preview");
-export const popupImagesTitle = popupImages.querySelector(".popup__title-img");
-
 //Открытие попапа "Добавить"
 popupAddOpenButton.addEventListener("click", () => {
+  placeFormValidator.resetValidation();
   popupFormNewCard.open();
 });
 
 //Открытие попапа "Редактировать"
 popupProfileOpenButton.addEventListener("click", () => {
-  popupFormProfile.setInputValues(userInfo.getUserInfo())
+  popupFormProfile.setInputValues(userInfo.getUserInfo());
+  profileFormValidator.resetValidation();
   popupFormProfile.open();
 });
 

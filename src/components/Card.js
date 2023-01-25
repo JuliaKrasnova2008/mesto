@@ -35,6 +35,9 @@ export default class Card {
     _deleteCard() {
         this._cardElem.remove()
         this._cardElem = null;
+        this._btnLike = null;
+        this._img = null;
+        
     }
 
     //метод для проставления слушателей событий

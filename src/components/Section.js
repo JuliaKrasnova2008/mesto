@@ -6,9 +6,7 @@ export default class Section {
     }
     //метод, который отвечает за отрисовку всех элементов
     renderItems() {
-        this._items.forEach((data) => {
-            this._renderer(data) //осуществляется отрисовка каждого отдельного объекта
-        })
+        this._items.forEach(this._renderer) //осуществляется отрисовка каждого отдельного объекта
     }
     //метод, который принимает DOM-элемент и добавляет его в контейнер
     addItem(element) {

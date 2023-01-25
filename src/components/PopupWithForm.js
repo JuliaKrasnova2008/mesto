@@ -12,12 +12,12 @@ export default class PopupWithForm extends Popup {
     //метод _getInputValues, который собирает данные всех полей формы.
     //в функциях с "get"(получить) обычно всегда возвращаем какое-то значение (return)
     _getInputValues() {
-        this._formData = {};
+        const formData = {};
         this._inputList.forEach((inputElement) => {
-            this._formData[inputElement.name] = inputElement.value;
+            formData[inputElement.name] = inputElement.value;
 
         });
-        return this._formData;
+        return formData;
 
     }
 
