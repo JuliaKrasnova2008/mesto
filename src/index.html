@@ -17,14 +17,16 @@
     <!--MAIN-->
     <main class="content">
       <section class="profile">
-        <div class="profile__elements">
-          <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Аватар пользователя">
+        <div class="profile__elements">       
+          <div class="profile__overlay">
+            <img class="profile__avatar" src="" alt="Аватар пользователя">
+          </div>
           <div class="profile__info">
             <div class="profile__title-edit">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <h1 class="profile__title"></h1>
               <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
             </div>
-            <p class="profile__subtitle">Исследователь океана</p>
+            <p class="profile__subtitle"></p>
           </div>
         </div>
 
@@ -39,7 +41,11 @@
               <img class="elements__foto">
               <div class="elements__item">
                 <h2 class="elements__title"></h2>
+                <div class="elements__favorite-group">
                 <button class="elements__favorite" type="button" aria-label="Нравится"></button>
+                <span class="elements__favorite-num">0</span>
+              </div>
+              </div>
               </div>
             </li>
           </template>
@@ -71,6 +77,21 @@
       </div>
     </div>
 
+    <div class="popup popup_type_main-foto">
+      <div class="popup__content">
+      <button class="popup__close" type="button" aria-label="Закрыть картинку"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form id="formMainFoto" class="form form_type_main-foto" name="mainFotoForm" method="POST" novalidate>
+        <input class="form__input form__input_type_link-mainFoto" id="input-linkMainFoto" name="linkMainFoto" type="url"
+              placeholder="Фото профиля" autocomplete="off" required>
+              <span class="form__input-error input-linkForm-error"></span>
+      <button class="form__submit" type="submit" aria-label="Сохранить">
+        Сохранить
+      </button>
+    </form>
+  </div>
+    </div>
+
     <div class="popup popup_type_add">
       <div class="popup__content">
         <button class="popup__close" type="button" aria-label="Закрыть редактирование профиля"></button>
@@ -96,6 +117,34 @@
         <h3 class="popup__title-img"></h3>
       </div>
     </div>
+
+    <div class="popup popup_type_delete">
+      <div class="popup__content">
+      <button class="popup__close" type="button" aria-label="Закрыть картинку"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form id="formDelete" class="form form_type_delete" name="deleteForm" method="POST" novalidate>
+      <button class="form__submit" type="submit" aria-label="Да">
+        Да
+      </button>
+    </form>
+  </div>
+    </div>
+
+    <div class="popup popup_type_avatar">
+      <div class="popup__content">
+      <button class="popup__close" type="button" aria-label="Закрыть картинку"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form id="formIdAvatar" class="form form_type_avatar" name="avatar" method="POST" novalidate>
+        <input class="form__input form__input_type_link-add" id="input-linkForm" name="linkForm" type="url"
+              placeholder="Ссылка на аватар" autocomplete="off" required>
+              <span class="form__input-error input-linkForm-error"></span>
+      <button class="form__submit" type="submit" aria-label="Сохранить">
+        Сохранить
+      </button>
+    </form>
+  </div>
+    </div>
+
 
 
   </div>
