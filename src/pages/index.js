@@ -15,6 +15,7 @@ const popupProfileForm = document.querySelector(".form_type_profile");
 const popupAddOpenButton = document.querySelector(".profile__add-button");
 const popupAddForm = document.querySelector(".form_type_add");
 const btnAvatar = document.querySelector(".profile__overlay");
+const updateAvatarForm = document.querySelector(".form_type_avatar")
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-58",
@@ -28,6 +29,9 @@ Promise.all([api.getUserInfo(), api.getAllCards()]).then(([user, cards]) => {
   userInfo.setUserInfo(user)
   section.renderItems(cards)
 })
+.catch((error) => {
+  console.log(error);
+});
 
 //Открытие попапа "Добавить"
 popupAddOpenButton.addEventListener("click", () => {
@@ -92,13 +96,17 @@ profileFormValidator.enableValidator();
 const placeFormValidator = new FormValidator(config, popupAddForm)
 placeFormValidator.enableValidator();
 
+const avatarFormValidator = new FormValidator(config, updateAvatarForm)
+avatarFormValidator.enableValidator();
+
 const section = new Section({
   renderer: (card) => {
-    return generateCard(card);
+    const element = generateCard(card);
+    section.addItem(element);
+    // return generateCard(card);
     // section.addItem(generateCard(card))
   }
 }, '.elements__list');
-// section.renderItems();
 
 const userInfo = new UserInfo('.profile__title', '.profile__subtitle', '.profile__avatar');
 const popupWithImage = new PopupWithImage({ selector: '.popup_type_img' });
@@ -121,7 +129,9 @@ const popupFormNewCard = new PopupWithForm({
   selector: '.popup_type_add', handleSubmitForm: (data) => {
     popupFormNewCard.showLoading(true);
     api.addNewCard(data).then((res) => {
-      section.addItem(res)
+      const element = generateCard(res);
+      section.addItem(element);
+      // section.addItem(res)
       popupFormNewCard.close()
     })
       .catch((error) => {

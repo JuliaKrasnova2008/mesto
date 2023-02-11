@@ -13,6 +13,7 @@ export default class Card {
         this._getId = getId;
         this._likeCardApi = likeCardApi;
         this._dislikeCardApi = dislikeCardApi;
+        this._isLike = data.likes.length !== 0 ? data.likes.find(item => item._id == this._getId()) : false;
     }
     //функция, которая генерит шаблон карточки
     _createTemplate() {
@@ -24,18 +25,18 @@ export default class Card {
 
     //метод для заполнения данными карточки
     _setData() {
+        this._btnLike = this._cardElem.querySelector(this._btnLikeSelector)
         const title = this._cardElem.querySelector(this._titleSelector)
         this._img = this._cardElem.querySelector(this._imgSelector)
 
         title.textContent = this._name;
         this._img.src = this._link;
         this._img.alt = this._name;
+
+        this._isLike ? this._btnLike.classList.add('elements__favorite_active') : null;
     }
 
-    //метод, который меняет активное состояние
-    // _toggleCardActive() {
-    //     this._btnLike.classList.toggle("elements__favorite_active")
-    // }
+
     //метод, который удаляет карточку
     _deleteCard() {
         this._cardElem.remove()
@@ -47,7 +48,6 @@ export default class Card {
 
     //метод для проставления слушателей событий
     _setListeners() {
-        this._btnLike = this._cardElem.querySelector(this._btnLikeSelector)
         this._btnLike.addEventListener('click', () => this._changeLikeApi(this._data))
         this._deleteBtn.addEventListener('click', () => this._handleDelete(this._data, this._deleteCard.bind(this)))
         this._img.addEventListener('click', () => this._handleCardClick(this._name, this._link))

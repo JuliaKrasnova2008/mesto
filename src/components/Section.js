@@ -5,15 +5,12 @@ export default class Section {
     }
     //метод, который отвечает за отрисовку всех элементов
     renderItems(data) {
-        // data.forEach(this._renderer) //осуществляется отрисовка каждого отдельного объекта
         data.forEach((elem)=> {
-            const card = this._renderer(elem)
-            this._container.append(card)
+            this._renderer(elem)
         })
     }
     //метод, который принимает DOM-элемент и добавляет его в контейнер
     addItem(element) {
-        const card = this._renderer(element);
-        this._container.prepend(card); //добавляет элемент в контейнер
+        this._container.prepend(element);
     }
 }
